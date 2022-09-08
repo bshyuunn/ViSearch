@@ -110,11 +110,11 @@ news = int(input("\n전체 페이지 검색 : 0 \n뉴스 페이지에서 검색 
 Data_Collection = int(input("\n적게 : 1 \n보통 : 2 \n많이 : 3 \n입력 : "))
 
 if Data_Collection == 1:
-    Data_Collection = 2
-elif Data_Collection == 2:
-    Data_Collection = 6
+    Data_Collection = 5
 elif Data_Collection == 2:
     Data_Collection = 10
+elif Data_Collection == 2:
+    Data_Collection = 20
 
 # 페이지 10개 크로링
 for i in range(Data_Collection):
