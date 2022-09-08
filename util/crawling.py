@@ -10,7 +10,7 @@ def craw_title_href(num, news):
     global search
 
     options = webdriver.ChromeOptions()
-    # options.add_argument('headless')
+    options.add_argument('headless')
     options.add_argument('window-size=1920x1080')
     options.add_argument("disable-gpu")
     
@@ -87,6 +87,14 @@ def additional_craw(href_data):
         for j in text:
             temp += j.text
         craw_df.loc[i, 'text'] = temp    
+        
+        print("=======================================")
+        print('2차 크롤링 중', f'{i+1}/{len(href_data)}' )
+        print("=======================================")   
+
+    print("=======================================")
+    print('2차 크롤링 완료!')
+    print("=======================================")
 
 # 데이터프레임 선언
 craw_df = pd.DataFrame({"title" : [],
@@ -99,10 +107,25 @@ href_data = []
 # 검색어 입력받기
 search = input('검색어를 입력하시요 : ')
 news = int(input("\n전체 페이지 검색 : 0 \n뉴스 페이지에서 검색 : 1\n입력 : "))
+Data_Collection = int(input("\n적게 : 1 \n보통 : 2 \n많이 : 3 \n입력 : "))
+
+if Data_Collection == 1:
+    Data_Collection = 2
+elif Data_Collection == 2:
+    Data_Collection = 6
+elif Data_Collection == 2:
+    Data_Collection = 10
 
 # 페이지 10개 크로링
-for i in range(1):
+for i in range(Data_Collection):
     craw_title_href(i, news)
+    print("=======================================")
+    print('1차 크롤링 중', f'{i+1}/{Data_Collection}' )
+    print("=======================================")
+
+print("=======================================")
+print('1차 크롤링 완료!')
+print("=======================================")
 
 # title의 링크에 들어가 본문 크롤링
 additional_craw(href_data)
