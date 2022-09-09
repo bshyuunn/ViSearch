@@ -3,11 +3,18 @@ from bs4 import BeautifulSoup
 import csv
 import pandas as pd
 
+# 데이터프레임 선언
+craw_df = pd.DataFrame({"title" : [],
+                   "text" : []}
+                   )
+
+# title 링크 저장
+href_data = []
+
 # 검색어 결과 제목 및 링크 크로링하기
-def craw_title_href(num, news):
+def craw_title_href(num, news, search):
     global craw_df
-    global href_data
-    global search
+    global href_data    
 
     options = webdriver.ChromeOptions()
     options.add_argument('headless')
@@ -96,40 +103,37 @@ def additional_craw(href_data):
     print('2차 크롤링 완료!')
     print("=======================================")
 
-# 데이터프레임 선언
-craw_df = pd.DataFrame({"title" : [],
-                   "text" : []}
-                   )
+# Search(검색 키워드, news에서 검색 시 1 아닐 시 0, 데이터 수집 양 적게 : 1 보통 : 2 많이 : 3)
+def Search(search, news, Data_Collection):
+    
+    if Data_Collection == 1:
+        Data_Collection = 5
+    elif Data_Collection == 2:
+        Data_Collection = 10
+    elif Data_Collection == 2:
+        Data_Collection = 20  
 
-# title 링크 저장
-href_data = []
+    # 페이지 10개 크롤링
+    for i in range(Data_Collection):
+        craw_title_href(i, news, search)
+        print("=======================================")
+        print('1차 크롤링 중', f'{i+1}/{Data_Collection}' )
+        print("=======================================")
 
-# 검색어 입력받기
-search = input('검색어를 입력하시요 : ')
-news = int(input("\n전체 페이지 검색 : 0 \n뉴스 페이지에서 검색 : 1\n입력 : "))
-Data_Collection = int(input("\n적게 : 1 \n보통 : 2 \n많이 : 3 \n입력 : "))
-
-if Data_Collection == 1:
-    Data_Collection = 5
-elif Data_Collection == 2:
-    Data_Collection = 10
-elif Data_Collection == 2:
-    Data_Collection = 20
-
-# 페이지 10개 크로링
-for i in range(Data_Collection):
-    craw_title_href(i, news)
     print("=======================================")
-    print('1차 크롤링 중', f'{i+1}/{Data_Collection}' )
+    print('1차 크롤링 완료!')
     print("=======================================")
 
-print("=======================================")
-print('1차 크롤링 완료!')
-print("=======================================")
+    additional_craw(href_data)
 
-# title의 링크에 들어가 본문 크롤링
-additional_craw(href_data)
+    file_name = search
+    craw_df.to_csv(f'./craw_data/{file_name}.csv', encoding='utf-8')
+    
 
-# csv 파일로 저장
-file_name = search
-craw_df.to_csv(f'./craw_data/{file_name}.csv', encoding='utf-8')
+
+# # 검색어 입력받기
+# search = input('검색어를 입력하시요 : ')
+# news = int(input("\n전체 페이지 검색 : 0 \n뉴스 페이지에서 검색 : 1\n입력 : "))
+# Data_Collection = int(input("\n적게 : 1 \n보통 : 2 \n많이 : 3 \n입력 : "))
+
+# Search(search, news, Data_Collection)
