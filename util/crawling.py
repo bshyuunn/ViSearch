@@ -107,7 +107,7 @@ def additional_craw(href_data):
 def Search(search, news, Data_Collection):
     
     if Data_Collection == 1:
-        Data_Collection = 5
+        Data_Collection = 3
     elif Data_Collection == 2:
         Data_Collection = 10
     elif Data_Collection == 2:

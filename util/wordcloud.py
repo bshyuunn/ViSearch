@@ -39,5 +39,3 @@ def wordclouod_word(input_data):
     wordcolud_list.append(list[i][0])
 
   return wordcolud_list
-
-print(wordclouod_word("서울"))
