@@ -12,14 +12,19 @@
 
     <form action="/search/">
         <p>
+            검색어 입력 : 
             <input id="input" type="search" name="search" autocomplete="off">        
 
-        <p>
-            <input id="input" type="number" placeholder="1" name="news">
+        <p>            
+            <input type="number" name="news"> 
+            <br>
+            전체글 창에서 검색 = 0, 뉴스 창에서 검색 = 1
         </p>
 
         <p>
-            <input type="number" placeholder="1" name="Data_Collection">
+            <input type="number" name="Data_Collection">
+            <br>
+            데이터 크롤링량 : 적게 = 1, 보통 = 2, 많이 = 3
         </p>
         <input type="submit">
         
