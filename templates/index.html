@@ -40,6 +40,10 @@
     <!-- css -->
     <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">    
     <link rel="stylesheet" href="{{url_for('static', filename='css/custom.css')}}">        
+
+    <link rel="stylesheet" href="{{url_for('static', filename='css/contact-input-style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/hover-effect.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/font-awesome.min.css')}}" />
     <!-- css -->
 
   </head>
@@ -59,8 +63,10 @@
             </div>        
             <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li ><a href="#services">Search</a></li>                
-                    <li><a href="#features">Introduce</a></li>
+                    <li ><a href="#home">Search</a></li> 
+                    <li ><a href="#services">Introduce</a></li>              
+                    <!-- <li><a href="#about">Visualization</a></li>
+                    <li><a href="#features">Summarization</a></li> -->
                     
                 </ul>
             </div>        
@@ -73,7 +79,7 @@
       <h1>아래 원하는 키워드를 <br> 입력해보세요.</h1>  
     <h2>인공지능이 입력된 키워드의 검색 결과를 시각화하고 요약해줍니다.</h2>
 
-    <form action="/search/">
+    <form action="/search/#about">
 
       <div class="input-group">
         <input type="text" placeholder="search" name ="search"  class="form-control" autocomplete="off"><span class="input-group-btn">
@@ -108,6 +114,44 @@
     </div>
     </section>
 
+    <section class="four-col-services" id="services">
+      <div class="container">
+        <div class="row">
+          <h2 class="text-center">Introduce</h2>
+          <h4 class="text-center">ViSearch는 Visualization(시각화) + Search(검색)의 합성어로 자연어처리(NLP) 기술을 이용하여 복잡한 구글 검색 결과를 시각화 및 요약해주는 서비스입니다. <br> 2022 국립중앙과학관 인공지능 자율탐구 프로그램 최종프로젝트 작품입니다. </h4>      
+          
+          
+          <div class="col-lg-4 col-md-4 col-sm-6 text-center service-block up-effect"><i class="fa fa-user" aria-hidden="true"></i><h3>제작 동기</h3><p>구글에서 검색을 하게 되면 방대한 검색 결과 때문에 원하는 결과를 한 눈에 얻기 쉽지 않습니다.</p></div>
+    
+          <div class="col-lg-4 col-md-4 col-sm-6 text-center service-block down-effect"><i class="fa fa-eye" aria-hidden="true"></i><h3>시각화</h3><p>구글 검색 결과를 크롤링하고 단어 등장 빈도수를 기반으로 WordCloud로 나타냅니다.</p></div>
+          
+          
+          <div class="col-lg-4 col-md-4 col-sm-6 text-center service-block up-effect"><i class="fa fa-file" aria-hidden="true"></i><h3>요약</h3><p>KoBert을 이용해 제작된 요약 인공지능을 사용해서 크롤링 데이터 요약을 진행합니다.</p></div><br>          
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- <section class="about-sec" id="about">
+      <div class="container">
+      <div class="row">
+      <div class="col-md-7 col-sm-12 main-text"><h2>About Us</h2><p class="lead">This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. </p> <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsumThis is Photoshop's versionof Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum</p>
+      <p>Roin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsumThis is Photoshop's versionof Lorem Ipsum.</p>
+       <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsumThis is Photoshop's versionof Lorem Ipsum.</p>
+      </div>
+      <div class="col-md-5 col-sm-12 points">
+      <div class="row">
+      <div class="col-sm-6 col-xs-6 point-content text-center"><img src="{{url_for('static', filename='img/icon-about-01.png')}}"><p>less text here used to show less text. it works.</p></div>
+      <div class="col-sm-6 col-xs-6 point-content text-center"><img src="{{url_for('static', filename='img/icon-about-02.png')}}"><p>less text here used to show less text. it works.</p></div>
+      <div class="col-sm-6  col-xs-6 point-content text-center"><img src="{{url_for('static', filename='img/icon-about-03.png')}}"><p>less text here used to show less text. it works.</p></div>
+      <div class="col-sm-6 col-xs-6 point-content text-center"><img src="{{url_for('static', filename='img/icon-about-04.png')}}"><p>less text here used to show less text. it works.</p></div>
+      </div>
+      </div>
+      
+      </div>
+      </div>
+      </section>
+
     <section class="feature-section" id="features">
     <div class="container">
     <h2 class="text-center">Features</h2>
@@ -116,26 +160,12 @@
     <div class="col-md-6 img-sec left-effect"><img class="img-responsive" src="{{url_for('static', filename='img/info-bg-01.jpg')}}"></div>
     <div class="col-md-6 right-effect"><div class="content-box"><h3>Basement Wireframe kit</h3><p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum</p>
     <a href="#">Know More<i class="fa fa-angle-right"></i></a></div></div>
-    </div>
+    </div>-->
 
-    <div class="row">
-    <div class="col-md-6 col-md-push-6 img-sec left-effect"><img class="img-responsive" src="{{url_for('static', filename='img/info-bg-03.jpg')}}"></div>
-    <div class="col-md-6 col-md-pull-6 right-effect"><div class="content-box"><h3>Basement Wireframe kit</h3><p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum</p>
-    <a href="#">Know More<i class="fa fa-angle-right"></i></a></div></div>
-    </div>
-
-    <div class="row">
-    <div class="col-md-6 img-sec left-effect"><img class="img-responsive" src="{{url_for('static', filename='img/info-bg-02.jpg')}}"></div>
-    <div class="col-md-6 right-effect"><div class="content-box"><h3>Basement Wireframe kit</h3><p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum</p>
-    <a href="#">Know More<i class="fa fa-angle-right"></i></a></div></div>
-    </div>
-    </div>
-    </section>
-
-    <script src="{{url_for('static', filename='js/jquery.min.js')}}"></script>    
+    <script src="{{url_for('static', filename='js/jquery.min.js')}}"></script>         
     <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>    
     <script src="{{url_for('static', filename='js/ie10-viewport-bug-workaround.js')}}"></script>    
-    <script src="{{url_for('static', filename='js/oppear_1.1.2.min.js')}}"></script>    
+    <script src="{{url_for('static', filename='js/oppear_1.1.2.min.js')}}"></script>
     
     <script>     
       $(window).scroll(function () {
