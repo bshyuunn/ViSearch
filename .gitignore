@@ -1,1 +1,4 @@
 /craw_data
+
+*.pyc
+__pycache__/
