@@ -1,35 +1,189 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ViSearch</title>                 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <title>ViSearch</title>
+
+    <!-- 체크박스 설정 스크립트 -->
+    <script>
+      function checkOnlyOne(element) {
+      
+      const checkboxes 
+          = document.getElementsByName("news");
+      
+      checkboxes.forEach((cb) => {
+        cb.checked = false;
+      })
+      
+      element.checked = true;
+    }
+
+      function checkOnlyOne2(element) {
+      
+      const checkboxes 
+          = document.getElementsByName("Data_Collection");
+      
+      checkboxes.forEach((cb) => {
+        cb.checked = false;
+      })
+      
+      element.checked = true;
+    }
+    </script>
+    <!-- 체크박스 설정 스크립트 -->        
+    
+    <!-- css -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">    
+    <link rel="stylesheet" href="{{url_for('static', filename='css/custom.css')}}">        
+    <!-- css -->
 
   </head>
   <body>
-    <h1>ViSearch</h1>
+   
+
+    <nav class="navbar navbar-default top-bar affix" data-spy="affix" data-offset-top="250" >
+        <div class="container" >           
+            <div class="navbar-header page-scroll">
+                <button data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" class="navbar-toggle" type="button">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#home" class="navbar-brand">ViSearch</a>  <!-- 로고 이름 -->
+            </div>        
+            <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li ><a href="#services">Search</a></li>                
+                    <li><a href="#features">Introduce</a></li>
+                    
+                </ul>
+            </div>        
+        </div>    
+    </nav>
+
+    <section class="banner-sec" id="home">
+    <div class="container">
+    <div class="jumbotron">
+      <h1>아래 원하는 키워드를 <br> 입력해보세요.</h1>  
+    <h2>인공지능이 입력된 키워드의 검색 결과를 시각화하고 요약해줍니다.</h2>
 
     <form action="/search/">
-        <p>
-            검색어 입력 : 
-            <input id="input" type="search" name="search" autocomplete="off">        
 
-        <p>            
-            <input type="number" name="news"> 
-            <br>
-            전체글 창에서 검색 = 0, 뉴스 창에서 검색 = 1
-        </p>
+      <div class="input-group">
+        <input type="text" placeholder="search" name ="search"  class="form-control"><span class="input-group-btn">
+        <button type="submit" class="btn btn-search">Search</button>
+        </span></div>
 
-        <p>
-            <input type="number" name="Data_Collection">
+      <div>
+        <div>
+          검색 글
             <br>
-            데이터 크롤링량 : 적게 = 1, 보통 = 2, 많이 = 3
-        </p>
-        <input type="submit">
-        
+            <input type='checkbox' name='news' value='0' onclick='checkOnlyOne(this)'/> 전체글
+            <input type='checkbox' name='news' value='1' onclick='checkOnlyOne(this)'/> 뉴스
+            
+          </div>
+          <div>
+          데이터 수집량
+            <br>
+            <input type='checkbox' name='Data_Collection' value='1' onclick='checkOnlyOne2(this)'/> 적게
+            <input type='checkbox' name='Data_Collection' value='2' onclick='checkOnlyOne2(this)'/> 보통
+            <input type='checkbox' name='Data_Collection' value='3' onclick='checkOnlyOne2(this)'/> 많이
+          </div>
+
+      </div>
+      
+      
+
     </form>
 
+
+
+    </div>
+    </div>
+    </section>
+
+    <section class="feature-section" id="features">
+    <div class="container">
+    <h2 class="text-center">Features</h2>
+    <p class="text-center sub-text">Proin gravida nibh vel velit auctor aliquet.</p>
+    <div class="row">  
+    <div class="col-md-6 img-sec left-effect"><img class="img-responsive" src="{{url_for('static', filename='img/info-bg-01.jpg')}}"></div>
+    <div class="col-md-6 right-effect"><div class="content-box"><h3>Basement Wireframe kit</h3><p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum</p>
+    <a href="#">Know More<i class="fa fa-angle-right"></i></a></div></div>
+    </div>
+
+    <div class="row">
+    <div class="col-md-6 col-md-push-6 img-sec left-effect"><img class="img-responsive" src="{{url_for('static', filename='img/info-bg-03.jpg')}}"></div>
+    <div class="col-md-6 col-md-pull-6 right-effect"><div class="content-box"><h3>Basement Wireframe kit</h3><p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum</p>
+    <a href="#">Know More<i class="fa fa-angle-right"></i></a></div></div>
+    </div>
+
+    <div class="row">
+    <div class="col-md-6 img-sec left-effect"><img class="img-responsive" src="{{url_for('static', filename='img/info-bg-02.jpg')}}"></div>
+    <div class="col-md-6 right-effect"><div class="content-box"><h3>Basement Wireframe kit</h3><p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum</p>
+    <a href="#">Know More<i class="fa fa-angle-right"></i></a></div></div>
+    </div>
+    </div>
+    </section>
+
+    <script src="{{url_for('static', filename='js/jquery.min.js')}}"></script>    
+    <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>    
+    <script src="{{url_for('static', filename='js/ie10-viewport-bug-workaround.js')}}"></script>    
+    <script src="{{url_for('static', filename='js/oppear_1.1.2.min.js')}}"></script>    
     
+    <script>     
+      $(window).scroll(function () {
+        var sticky = $('.navbar-brand'),
+            scroll = $(window).scrollTop();
+          
+          if (scroll >= 250) sticky.addClass('dark');
+          else sticky.removeClass('dark');
+          
+      });
+      
+      $('.service-box').Oppear({
+        delay : 500,
+        });
+      $('.main-text').Oppear({
+        direction:'right',
+      });
+      $('.points').Oppear({
+        direction:'left',
+      });
+      $('.up-effect').Oppear({
+        direction:'up',
+      });
+      $('.down-effect').Oppear({
+        direction:'down',
+      });
+      $('.left-effect').Oppear({
+        direction:'right',
+      });
+      $('.right-effect').Oppear({
+        direction:'left',
+      });				
+      </script>
+      
+      <script>
+        $('a[href^="#"]').on('click', function(event) {
+
+          var target = $( $(this).attr('href') );
+
+          if( target.length ) {
+              event.preventDefault();
+              $('html, body').animate({
+                  scrollTop: target.offset().top
+              }, 1000);
+          }
+
+      });
+
+      </script>
   </body>
 </html>
