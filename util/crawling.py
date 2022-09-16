@@ -110,7 +110,7 @@ def Search(search, news, Data_Collection):
         Data_Collection = 3
     elif Data_Collection == 2:
         Data_Collection = 10
-    elif Data_Collection == 2:
+    elif Data_Collection == 3:
         Data_Collection = 20  
 
     # 페이지 10개 크롤링
