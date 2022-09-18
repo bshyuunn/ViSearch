@@ -134,7 +134,7 @@ def Search(search, news, Data_Collection):
     additional_craw(href_data)
 
     file_name = search
-    craw_df.to_csv(f'./craw_data/{file_name}.csv', encoding='utf-8')
+    craw_df.to_csv(f'./data/craw_data/{file_name}.csv', encoding='utf-8')
     
 
 

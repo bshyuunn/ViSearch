@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    
-    <title>ViSearch</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ViSearch</title>  
+
+    <script src="{{url_for('static', filename='js/jquery.min.js')}}"></script>             
+    <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>    
+    <script src="{{url_for('static', filename='js/ie10-viewport-bug-workaround.js')}}"></script>    
+    <script src="{{url_for('static', filename='js/oppear_1.1.2.min.js')}}"></script>
 
     <!-- 체크박스 설정 스크립트 -->
     <script>
@@ -46,6 +48,86 @@
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/font-awesome.min.css')}}" />
     <!-- css -->
 
+      <!-- 워드 클라우드 -->
+      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.js"></script>   
+      <script src="https://golangkorea.github.io/js/jqcloud/jqcloud.min.js"></script>
+      <link rel="stylesheet" href="https://golangkorea.github.io/js/jqcloud/jqcloud.min.css">        
+      
+      <script>
+          var word = [
+        {text: "{{word_list[0]}}", weight: 13, link: 'http://github.com/mistic100/jQCloud'},
+        {text: "{{word_list[1]}}", weight: 10.5},
+        {text: "{{word_list[2]}}", weight: 9.4},
+        {text: "{{word_list[3]}}", weight: 8},
+        {text: "{{word_list[4]}}", weight: 6.2},
+        {text: "{{word_list[5]}}", weight: 5},
+        {text: "{{word_list[6]}}", weight: 5},
+        {text: "{{word_list[7]}}", weight: 5},
+        {text: "{{word_list[8]}}", weight: 5},
+        {text: "{{word_list[9]}}", weight: 4},
+        {text: "{{word_list[10]}}", weight: 4},
+        {text: "{{word_list[11]}}", weight: 3},
+        {text: "{{word_list[12]}}", weight: 3},
+        {text: "{{word_list[13]}}", weight: 3},
+        {text: "{{word_list[14]}}", weight: 3},
+        {text: "{{word_list[15]}}", weight: 3},
+        {text: "{{word_list[16]}}", weight: 3},
+        {text: "{{word_list[17]}}", weight: 3},
+        {text: "{{word_list[18]}}", weight: 2},
+        {text: "{{word_list[19]}}", weight: 2},        
+        {text: "{{word_list[20]}}", weight: 2},
+        {text: "{{word_list[21]}}", weight: 2},
+        {text: "{{word_list[22]}}", weight: 2},
+        {text: "{{word_list[23]}}", weight: 2},
+        {text: "{{word_list[24]}}", weight: 2},
+        {text: "{{word_list[25]}}", weight: 2},
+        {text: "{{word_list[26]}}", weight: 2},
+        {text: "{{word_list[27]}}", weight: 2},
+        {text: "{{word_list[28]}}", weight: 1},
+        {text: "{{word_list[29]}}", weight: 1},
+        {text: "{{word_list[30]}}", weight: 1},
+        {text: "{{word_list[31]}}", weight: 1},
+        {text: "{{word_list[32]}}", weight: 1},
+        {text: "{{word_list[33]}}", weight: 1},
+        {text: "{{word_list[34]}}", weight: 1},
+        {text: "{{word_list[35]}}", weight: 1},
+        {text: "{{word_list[36]}}", weight: 1},
+        {text: "{{word_list[37]}}", weight: 1},
+        {text: "{{word_list[38]}}", weight: 1},
+        {text: "{{word_list[39]}}", weight: 1},
+        {text: "{{word_list[40]}}", weight: 1},
+        {text: "{{word_list[41]}}", weight: 1},
+        {text: "{{word_list[42]}}", weight: 1},
+        {text: "{{word_list[43]}}", weight: 1},
+        {text: "{{word_list[44]}}", weight: 1},
+        {text: "{{word_list[45]}}", weight: 1},
+        {text: "{{word_list[46]}}", weight: 1},
+        {text: "{{word_list[47]}}", weight: 1},
+        {text: "{{word_list[48]}}", weight: 1},
+        {text: "{{word_list[49]}}", weight: 1},
+        {text: "{{word_list[50]}}", weight: 1},
+        {text: "{{word_list[51]}}", weight: 1},
+        {text: "{{word_list[52]}}", weight: 1},
+        {text: "{{word_list[53]}}", weight: 1},
+        {text: "{{word_list[54]}}", weight: 1},
+        {text: "{{word_list[55]}}", weight: 1},
+        {text: "{{word_list[56]}}", weight: 1},
+        {text: "{{word_list[57]}}", weight: 1},
+        {text: "{{word_list[58]}}", weight: 1},
+        {text: "{{word_list[59]}}", weight: 1}
+        ]; 
+      </script>    
+  
+      <script>
+    
+    
+        $(function() {
+          $("#word").jQCloud(word);
+        });
+      </script>      
+      <!-- jQcloud 불러오기 -->        
+      <!-- <link rel="stylesheet" href="{{url_for('static', filename='css/wordcloud.css')}}"> -->
+
   </head>
   <body>
    
@@ -63,8 +145,8 @@
             </div>        
             <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li ><a href="#home">Search</a></li> 
-                    <li ><a href="#services">Introduce</a></li>              
+                    <!-- <li ><a href="#home">Search</a></li> 
+                    <li ><a href="#services">Introduce</a></li>               -->
                     <!-- <li><a href="#about">Visualization</a></li>
                     <li><a href="#features">Summarization</a></li> -->
                     
@@ -90,14 +172,14 @@
         <div>
           검색 글
             <br>
-            <input type='checkbox' name='news' value='0' onclick='checkOnlyOne(this)'/> 전체글
+            <input type='checkbox' name='news' value='0' onclick='checkOnlyOne(this)' checked = 'checked'/> 전체글
             <input type='checkbox' name='news' value='1' onclick='checkOnlyOne(this)'/> 뉴스
             
           </div>
           <div>
           데이터 수집량
             <br>
-            <input type='checkbox' name='Data_Collection' value='1' onclick='checkOnlyOne2(this)'/> 적게
+            <input type='checkbox' name='Data_Collection' value='1' onclick='checkOnlyOne2(this)' checked = 'checked'/> 적게
             <input type='checkbox' name='Data_Collection' value='2' onclick='checkOnlyOne2(this)'/> 보통
             <input type='checkbox' name='Data_Collection' value='3' onclick='checkOnlyOne2(this)'/> 많이
           </div>
@@ -132,42 +214,22 @@
       </div>
     </section>
 
-    <!-- <section class="about-sec" id="about">
+    <section class="about-sec" id="about" style="padding:75px 0 0px;">
       <div class="container">
+        <h2 class="text-center" style="font-size:45px; font-weight:bold; margin:0">"{{keyword}}" 검색 결과</h2>
+        <br>
+        <br>
       <div class="row">
-      <div class="col-md-7 col-sm-12 main-text"><h2>About Us</h2><p class="lead">This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. </p> <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsumThis is Photoshop's versionof Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum</p>
-      <p>Roin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsumThis is Photoshop's versionof Lorem Ipsum.</p>
-       <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsumThis is Photoshop's versionof Lorem Ipsum.</p>
-      </div>
+      <div id="word" class='stop-dragging' style="width: 700px; height: 450px; border: 5px solid #ccc; -webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none"></div>
       <div class="col-md-5 col-sm-12 points">
-      <div class="row">
-      <div class="col-sm-6 col-xs-6 point-content text-center"><img src="{{url_for('static', filename='img/icon-about-01.png')}}"><p>less text here used to show less text. it works.</p></div>
-      <div class="col-sm-6 col-xs-6 point-content text-center"><img src="{{url_for('static', filename='img/icon-about-02.png')}}"><p>less text here used to show less text. it works.</p></div>
-      <div class="col-sm-6  col-xs-6 point-content text-center"><img src="{{url_for('static', filename='img/icon-about-03.png')}}"><p>less text here used to show less text. it works.</p></div>
-      <div class="col-sm-6 col-xs-6 point-content text-center"><img src="{{url_for('static', filename='img/icon-about-04.png')}}"><p>less text here used to show less text. it works.</p></div>
-      </div>
+      <div class="row"></div>
       </div>
       
       </div>
       </div>
       </section>
 
-    <section class="feature-section" id="features">
-    <div class="container">
-    <h2 class="text-center">Features</h2>
-    <p class="text-center sub-text">Proin gravida nibh vel velit auctor aliquet.</p>
-    <div class="row">  
-    <div class="col-md-6 img-sec left-effect"><img class="img-responsive" src="{{url_for('static', filename='img/info-bg-01.jpg')}}"></div>
-    <div class="col-md-6 right-effect"><div class="content-box"><h3>Basement Wireframe kit</h3><p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum</p>
-    <a href="#">Know More<i class="fa fa-angle-right"></i></a></div></div>
-    </div>-->
-
-    <script src="{{url_for('static', filename='js/jquery.min.js')}}"></script>         
-    <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>    
-    <script src="{{url_for('static', filename='js/ie10-viewport-bug-workaround.js')}}"></script>    
-    <script src="{{url_for('static', filename='js/oppear_1.1.2.min.js')}}"></script>
-    
-    <script>     
+          <script>     
       $(window).scroll(function () {
         var sticky = $('.navbar-brand'),
             scroll = $(window).scrollTop();
@@ -215,5 +277,6 @@
       });
 
       </script>
+    
   </body>
 </html>
