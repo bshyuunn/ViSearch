@@ -112,20 +112,37 @@ def additional_craw(href_data):
 
 # Search(검색 키워드, news에서 검색 시 1 아닐 시 0, 데이터 수집 양 적게 : 1 보통 : 2 많이 : 3)
 def Search(search, news, Data_Collection):
+    global craw_df
+    global href_data  
+
+    # 데이터프레임 선언
+    craw_df = pd.DataFrame({"title" : [],
+                    "text" : []}
+                    )
+
+    # title 링크 저장
+    href_data = []
+
+
     
     if Data_Collection == 1:
-        Data_Collection = 3
+        Data_Collection = 1 
     elif Data_Collection == 2:
-        Data_Collection = 10
+        Data_Collection = 5
     elif Data_Collection == 3:
-        Data_Collection = 20  
+        Data_Collection = 10  
 
     # 페이지 10개 크롤링
     for i in range(Data_Collection):
-        craw_title_href(i, news, search)
-        print("=======================================")
-        print('1차 크롤링 중', f'{i+1}/{Data_Collection}' )
-        print("=======================================")
+        try:
+
+            craw_title_href(i, news, search)
+            print("=======================================")
+            print('1차 크롤링 중', f'{i+1}/{Data_Collection}' )
+            print("=======================================")
+
+        except:
+            continue
 
     print("=======================================")
     print('1차 크롤링 완료!')
