@@ -20,13 +20,16 @@ def index():
     search = '인공지능'
 
     summary_sentence = '옆의 요약하고 싶은 키워드를 누르세요!'
+               
+    summary_word = request.args.get('summary') 
+    print(summary_word)
 
-    try:                
-        summary = request.args.get('summary') 
-        summary_sentence = find_sentence(summary, search)    
+    if summary_word != None:
+        print('요약 중')
+        summary_sentence = find_sentence(summary_word, search)    
 
-    except:
-        summary_sentence = '옆의 요약하고 싶은 키워드를 누르세요!'  
+    else:
+        summary_sentence = '요약 인공지능을 사용해서 요약합니다.'  
     
     return render_template('index.html', word_list = wordcloudword, keyword = search, summary = summary_sentence) 
 
@@ -34,9 +37,8 @@ def index():
 def search():
 
     search = request.args.get('search')
-    summary = request.args.get('summary') 
-    
-    try:        
+    summary_word = request.args.get('summary') 
+    try:
         news = int(request.args.get('news'))    
         Data_Collection = int(request.args.get('Data_Collection'))                   
     except:
@@ -49,14 +51,11 @@ def search():
     
     wordcloudword = wordclouod_word(search)
 
-    try:
-        search_word = search
-        find_word = summary
+    if summary_word != None:
+        summary_sentence = find_sentence(summary_word, search)                                    
 
-        summary_sentence = find_sentence(find_word, search_word)                                    
-
-    except:
-        summary_sentence = '옆의 요약하고 싶은 키워드를 누르세요!'        
+    else:
+        summary_sentence = '요약 인공지능을 사용해서 요약합니다.'         
 
     return render_template('index.html', word_list = wordcloudword, keyword = search, summary = summary_sentence)
 

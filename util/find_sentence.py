@@ -7,9 +7,6 @@ from transformers import PreTrainedTokenizerFast
 from transformers import BartForConditionalGeneration
 
 def find_sentence(find_word, data):    
-    global tokenizer
-    global model
-
     data = pd.read_csv(r".\.\data\craw_data"'\\' + data + '.csv')     
 
     tokenizer = Mecab()
