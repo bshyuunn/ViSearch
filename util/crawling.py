@@ -126,7 +126,7 @@ def Search(search, news, Data_Collection):
 
     
     if Data_Collection == 1:
-        Data_Collection = 1 
+        Data_Collection = 2
     elif Data_Collection == 2:
         Data_Collection = 5
     elif Data_Collection == 3:
