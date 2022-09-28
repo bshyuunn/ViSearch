@@ -5,3 +5,6 @@ ViSearch는 Visualization(시각화) + Search(검색)의 합성어로 자연어�
 
 개발 기간 : 2022.08.31 ~ 2022.09.28 <br>
 웹 시연 영상 : https://drive.google.com/file/d/1zj_zzXIBdc3R_oO8oV152q4-aNXFbBHK/view?usp=sharing
+
+![화면 캡처 2022-09-28 202046](https://user-images.githubusercontent.com/87067974/192766443-9ac309c5-9e16-47f4-842f-1b0ba7f726b5.png)
+
