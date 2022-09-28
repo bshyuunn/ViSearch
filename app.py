@@ -19,7 +19,7 @@ def index():
     wordcloudword = wordclouod_word_index('인공지능')            
     search = '인공지능'
 
-    summary_sentence = '옆의 요약하고 싶은 키워드를 누르세요! 요약 인공지능을 사용해서 관련글을 요약해서 보여줍니다!'
+    summary_sentence = '위의 요약하고 싶은 키워드를 누르세요! 요약 인공지능을 사용해서 관련글을 요약해서 보여줍니다!'
                
     summary_word = request.args.get('summary') 
     print(summary_word)
@@ -29,7 +29,7 @@ def index():
         summary_sentence = find_sentence(summary_word, search)    
 
     else:
-        summary_sentence = '옆의 요약하고 싶은 키워드를 누르세요! 요약 인공지능을 사용해서 관련글을 요약해서 보여줍니다!'  
+        summary_sentence = '위의 요약하고 싶은 키워드를 누르세요! 요약 인공지능을 사용해서 관련글을 요약해서 보여줍니다!'  
     
     return render_template('index.html', word_list = wordcloudword, keyword = search, summary = summary_sentence) 
 
