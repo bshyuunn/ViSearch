@@ -3,3 +3,5 @@
 
 ViSearch는 Visualization(시각화) + Search(검색)의 합성어로 자연어처리(NLP) 기술을 이용하여 복잡한 구글 검색 결과를 시각화 및 요약해주는 서비스입니다.
 
+개발 기간 : 2022.08.31 ~ 2022.09.28 <br>
+웹 시연 영상 : https://drive.google.com/file/d/1zj_zzXIBdc3R_oO8oV152q4-aNXFbBHK/view?usp=sharing
