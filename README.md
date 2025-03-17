@@ -1,11 +1,6 @@
 # ViSearch
-> [2022 국립중앙과학관 인공지능 자율탐구 프로그램](https://www.science.go.kr/board/view?menuId=MENU00477&linkId=4701994) 3번 과제 최종 프로젝트
 
-ViSearch는 Visualization(시각화) + Search(검색)의 합성어로 자연어처리(NLP) 기술을 이용하여 복잡한 구글 검색 결과를 시각화 및 요약해주는 서비스입니다.
-
-개발 기간 : 2022.08.31 ~ 2022.09.28 <br>
-웹 시연 영상 : https://youtu.be/PaHkV6CyOaw <br>
-사용 템플릿 : https://bootstrapthemes.co/item/perfection-bootstrap-responsive-template/
-
-![화면 캡처 2022-09-28 202046](https://user-images.githubusercontent.com/87067974/192766443-9ac309c5-9e16-47f4-842f-1b0ba7f726b5.png)
-
+ViSearch is a compound word combining Visualization and Search. It is a service that utilizes Natural Language Processing (NLP) technology to visualize and summarize complex Google search results.
+- Development Period: 2022.08.31 ~ 2022.09.28
+- Web Demo Video: https://youtu.be/PaHkV6CyOaw
+- Template Used: [Perfection - Bootstrap Responsive Template](https://bootstrapthemes.co/item/perfection-bootstrap-responsive-template/)
